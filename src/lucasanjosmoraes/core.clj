@@ -43,13 +43,13 @@
   (comp println (partial str "exception handled: ")))
 
 (defn parse-row-to-map
-  [^Row row keys-to-select]
+  [^Row row keys-to-select query-tag]
   (let [values     (.getList (.values row))
         columns    (.columnNames row)
         m          (zipmap columns values)
         filtered-m (select-keys m keys-to-select)]
     ;; We can parse filtered-m to an entity with a defined schema.
-    (println "Anomaly:" filtered-m)))
+    (println "Query: " query-tag "Map: " filtered-m)))
 
 (defn wait-n-signals
   [n limit ch]
@@ -188,7 +188,7 @@
         (println "Empty result")
         (doall
           (for [^Row row result]
-            (parse-row-to-map row keys-to-select)))))
+            (parse-row-to-map row keys-to-select query)))))
     (catch ExecutionException e
       (print-ex (.getMessage (.getCause e))))))
 
