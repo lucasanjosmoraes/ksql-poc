@@ -14,14 +14,13 @@
 ) WITH (
      kafka_topic = 'transactions',
      partitions = 8,
-     value_format = 'avro',
+     value_format = 'json',
      timestamp = 'timestamp',
      timestamp_format = 'yyyy-MM-dd''T''HH:mm:ss'
 );")
 (def DROP_TRANSACTIONS_STREAM_STMT "DROP STREAM IF EXISTS TRANSACTIONS DELETE TOPIC;")
 (def CREATE_ANOMALIES_TABLE_STMT "CREATE TABLE possible_anomalies WITH (
-    kafka_topic = 'possible_anomalies',
-    VALUE_AVRO_SCHEMA_FULL_NAME = 'io.ksqldb.tutorial.PossibleAnomaly'
+    kafka_topic = 'possible_anomalies'
 )   AS
     SELECT card_number AS `card_number_key`,
            as_value(card_number) AS `card_number`,

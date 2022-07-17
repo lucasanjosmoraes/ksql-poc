@@ -13,10 +13,9 @@
 ) WITH (
     kafka_topic = 'profile_data',
     partitions = 1,
-    value_format = 'avro',
+    value_format = 'json',
     timestamp = 'created_at',
-    timestamp_format = 'yyyy-MM-dd''T''HH:mm:ss',
-    VALUE_AVRO_SCHEMA_FULL_NAME = 'com.lucasanjosmoraes.ProfileData'
+    timestamp_format = 'yyyy-MM-dd''T''HH:mm:ss'
 );")
 (def DROP_PROFILE_DATA_STMT "DROP TABLE IF EXISTS PROFILE_DATA DELETE TOPIC;")
 
@@ -28,7 +27,7 @@
 ) WITH (
     kafka_topic = 'analyze_profile',
     partitions = 1,
-    value_format = 'avro'
+    value_format = 'json'
 );")
 (def DROP_ANALYZE_PROFILE_STREAM_STMT "DROP STREAM IF EXISTS ANALYZE_PROFILE DELETE TOPIC;")
 
@@ -55,8 +54,7 @@
 ) WITH (
     kafka_topic = 'files',
     partitions = 2,
-    value_format = 'avro',
-    VALUE_AVRO_SCHEMA_FULL_NAME = 'com.lucasanjosmoraes.Files'
+    value_format = 'json'
 );")
 (def CREATE_QUERYABLE_FILES_STMT "CREATE TABLE QUERYABLE_FILES AS SELECT * FROM FILES EMIT CHANGES;")
 (def DROP_QUERYABLE_FILES_TABLE_STMT "DROP TABLE IF EXISTS QUERYABLE_FILES DELETE TOPIC;")
@@ -73,7 +71,7 @@
 ) WITH (
     kafka_topic = 'register',
     partitions = 2,
-    value_format = 'avro',
+    value_format = 'json',
     timestamp = 'created_at',
     timestamp_format = 'yyyy-MM-dd''T''HH:mm:ss'
 );")
