@@ -20,6 +20,11 @@ lein emulate-app
 There are scripts in the directory `.run` that allow you to run either components. You just need to choose one of them
 from the dropdown menu and press play 🛀🏽.
 
+## Namespaces with PTGH tag
+
+PTGH is a personal project of mine where I study a use-case of Kafka on Event-Sourcing. The namespaces without this tag
+are enough in this POC, but you can run the PTGH namespaces to get more examples of how to use ksql.
+
 ## License
 
 Copyright © 2022 Lucas dos Anjos Moraes
