@@ -7,5 +7,6 @@
     (do
       (core/get-server-info client)
       (core/list-tables client)
-      (core/exec-pull-query client)
+      (core/list-streams client)
+      (core/exec-multiple-pull-queries client (core/get-queries-to-exec))
       (.close client))))
