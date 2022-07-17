@@ -11,4 +11,6 @@
   :repositories [["ksqlDB" "https://packages.confluent.io/maven/"]]
   :plugin-repositories [["ksqlDB" "https://packages.confluent.io/maven/"]]
   :aliases {"base-resources" ["run" "-m" "lucasanjosmoraes.base-resources"]
-            "emulate-app" ["run" "-m" "lucasanjosmoraes.emulate-app"]})
+            "emulate-app" ["run" "-m" "lucasanjosmoraes.emulate-app"]
+            "ptgh-resources" ["run" "-m" "lucasanjosmoraes.ptgh-resources"]
+            "emulate-ptgh-app" ["run" "-m" "lucasanjosmoraes.ptgh-app"]})
